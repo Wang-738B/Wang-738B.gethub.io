@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>我的个人网站</title>
+    <style>
+        body { 
+            text-align: center; 
+            margin-top: 100px; 
+            font-family: 微软雅黑;
+        }
+        h1 { color: #2196F3; }
+    </style>
+</head>
+<body>
+    <h1>软件下载</h1>
+    <!-- 这里是新增的图片代码 -->
+    <img src="https://raw.githubusercontent.com/Wang-738B/Wang-738B.github.io/main/avatar.png" alt="我的头像" width="300">
+    <p>编程时的常用软件下载~</p>
+</body>
+</html>
