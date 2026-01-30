@@ -2,31 +2,183 @@
 <html lang="zh-CN">
 <head>
     <meta charset="UTF-8">
-    <title>我的个人网站</title>
+    <!-- 视口适配：和主页保持一致，手机端正常显示 -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>软件下载 - 我的个人网站</title>
     <style>
-        body { 
-            text-align: center; 
-            margin-top: 100px; 
-            font-family: 微软雅黑;
+        /* 全局样式重置：和主页完全一致，消除浏览器默认样式 */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
         }
-        h1 { color: #2196F3; }
-        h3 { color: #005035; }
-        p { color: #101010; }
+
+        /* body全局样式：和主页统一的背景、字体、居中方式 */
+        body {
+            font-family: "微软雅黑", "Microsoft YaHei", sans-serif;
+            background-color: #f5f7fa;
+            color: #333;
+            padding: 40px 20px;
+            max-width: 800px; /* 限制页面最大宽度，避免电脑端内容过散 */
+            margin: 0 auto; /* 水平居中 */
+            line-height: 1.8;
+        }
+
+        /* 页面标题：和主页主标题配色、间距统一 */
+        .page-title {
+            color: #2196F3;
+            font-size: 32px;
+            font-weight: 600;
+            text-align: center;
+            margin-bottom: 10px;
+            padding-bottom: 15px;
+            border-bottom: 2px solid #eef2f7; /* 底部分割线，增加层次感 */
+        }
+
+        /* 页面描述：居中显示，浅灰色文字，和主页描述统一 */
+        .page-desc {
+            text-align: center;
+            color: #555;
+            font-size: 16px;
+            margin-bottom: 40px;
+        }
+
+        /* 软件卡片：每个软件一个独立卡片，隔离样式，易扩展 */
+        .software-card {
+            background-color: #fff; /* 白色卡片背景，突出内容 */
+            padding: 25px;
+            border-radius: 12px; /* 圆角，和主页统一 */
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06); /* 轻微阴影，增加层次感 */
+            margin-bottom: 30px;
+        }
+
+        /* 软件名称：深绿配色保留你的原设计，优化大小和间距 */
+        .software-name {
+            color: #005035;
+            font-size: 22px;
+            font-weight: 600;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        /* 软件说明文字：优化颜色和间距，阅读更舒服 */
+        .software-desc {
+            color: #555;
+            font-size: 16px;
+            margin-bottom: 20px;
+        }
+
+        /* 分卷下载链接容器：统一排版，避免链接杂乱 */
+        .download-links {
+            display: flex;
+            flex-wrap: wrap; /* 手机端自动换行，不溢出 */
+            gap: 10px; /* 链接之间的间距，比手动margin更方便 */
+            justify-content: center; /* 链接水平居中 */
+        }
+
+        /* 分卷下载链接样式：按钮化，和主页链接交互一致 */
+        .download-link {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #2196F3;
+            color: #fff !important;
+            text-decoration: none;
+            border-radius: 8px;
+            font-size: 15px;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            min-width: 60px;
+            text-align: center;
+        }
+
+        /* 链接hover/点击效果：和主页按钮完全一致的交互 */
+        .download-link:hover {
+            background-color: #1976D2;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(33, 150, 243, 0.4);
+        }
+        .download-link:active {
+            transform: translateY(0);
+        }
+
+        /* 返回主页按钮：固定在顶部，方便快速返回 */
+        .back-home {
+            display: inline-block;
+            margin: 0 auto 30px;
+            padding: 10px 20px;
+            background-color: #fff;
+            color: #2196F3 !important;
+            border: 1px solid #2196F3;
+            text-decoration: none;
+            border-radius: 8px;
+            font-size: 15px;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            text-align: center;
+            /* 让按钮居中 */
+            position: relative;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .back-home:hover {
+            background-color: #2196F3;
+            color: #fff !important;
+            box-shadow: 0 2px 8px rgba(33, 150, 243, 0.3);
+        }
+
+        /* 响应式：手机端缩小标题和卡片内边距 */
+        @media (max-width: 600px) {
+            .page-title {
+                font-size: 26px;
+            }
+            .software-card {
+                padding: 20px;
+            }
+            .software-name {
+                font-size: 20px;
+            }
+            .download-link {
+                padding: 8px 16px;
+                font-size: 14px;
+            }
+        }
     </style>
 </head>
 <body>
-    <h1>软件下载</h1>
-    <!-- 这里是新增的图片代码 -->
-    <img src="https://raw.githubusercontent.com/Wang-738B/Wang-738B.github.io/main/avatar.png" alt="我的头像" width="300">
-    <p>编程时的常用软件下载~</p>
-    <h3>小熊猫C++</h3>
-    <p>分6卷，请全部下载后解压第一个</p>
-    <a href="https://github.com/Wang-738B/Wang-738B.gethub.io/raw/refs/heads/main/softwares/RedPandaC++.3.4.win64.MinGW64_11.5.0.Setup.7z.001">1</a>
-    <a href="https://github.com/Wang-738B/Wang-738B.gethub.io/raw/refs/heads/main/softwares/RedPandaC++.3.4.win64.MinGW64_11.5.0.Setup.7z.002">2</a>
-    <a href="https://github.com/Wang-738B/Wang-738B.gethub.io/raw/refs/heads/main/softwares/RedPandaC++.3.4.win64.MinGW64_11.5.0.Setup.7z.003">3</a>
-    <a href="https://github.com/Wang-738B/Wang-738B.gethub.io/raw/refs/heads/main/softwares/RedPandaC++.3.4.win64.MinGW64_11.5.0.Setup.7z.004">4</a>
-    <a href="https://github.com/Wang-738B/Wang-738B.gethub.io/raw/refs/heads/main/softwares/RedPandaC++.3.4.win64.MinGW64_11.5.0.Setup.7z.005">5</a>
-    <a href="https://github.com/Wang-738B/Wang-738B.gethub.io/raw/refs/heads/main/softwares/RedPandaC++.3.4.win64.MinGW64_11.5.0.Setup.7z.006">6</a>
-    
+    <!-- 返回主页按钮：快速回到首页，不用手动输网址 -->
+    <a href="../index.html" class="back-home">← 返回个人主页</a>
+
+    <!-- 页面主标题 -->
+    <h1 class="page-title">软件下载</h1>
+    <!-- 页面描述 -->
+    <p class="page-desc">编程时的常用软件下载，建议收藏本页面方便后续使用~</p>
+
+    <!-- 软件卡片1：小熊猫C++ 【核心：后续加新软件直接复制这个卡片即可】 -->
+    <div class="software-card">
+        <h3 class="software-name">小熊猫C++</h3>
+        <p class="software-desc">版本：3.4 win64 MinGW64_11.5.0 | 分6卷压缩，需全部下载后解压第一个文件即可安装</p>
+        <div class="download-links">
+            <a href="https://github.com/Wang-738B/Wang-738B.github.io/raw/refs/heads/main/softwares/RedPandaC++.3.4.win64.MinGW64_11.5.0.Setup.7z.001" class="download-link">分卷1</a>
+            <a href="https://github.com/Wang-738B/Wang-738B.github.io/raw/refs/heads/main/softwares/RedPandaC++.3.4.win64.MinGW64_11.5.0.Setup.7z.002" class="download-link">分卷2</a>
+            <a href="https://github.com/Wang-738B/Wang-738B.github.io/raw/refs/heads/main/softwares/RedPandaC++.3.4.win64.MinGW64_11.5.0.Setup.7z.003" class="download-link">分卷3</a>
+            <a href="https://github.com/Wang-738B/Wang-738B.github.io/raw/refs/heads/main/softwares/RedPandaC++.3.4.win64.MinGW64_11.5.0.Setup.7z.004" class="download-link">分卷4</a>
+            <a href="https://github.com/Wang-738B/Wang-738B.github.io/raw/refs/heads/main/softwares/RedPandaC++.3.4.win64.MinGW64_11.5.0.Setup.7z.005" class="download-link">分卷5</a>
+            <a href="https://github.com/Wang-738B/Wang-738B.github.io/raw/refs/heads/main/softwares/RedPandaC++.3.4.win64.MinGW64_11.5.0.Setup.7z.006" class="download-link">分卷6</a>
+        </div>
+    </div>
+
+    <!-- 软件卡片2：扩展示例【直接解开注释，改名称、描述、链接即可用】
+    <div class="software-card">
+        <h3 class="software-name">VS Code 中文版</h3>
+        <p class="software-desc">版本：最新稳定版 | 一键安装，内置中文语言包，无需额外配置</p>
+        <div class="download-links">
+            <a href="你的VS Code下载链接" class="download-link">立即下载</a>
+        </div>
+    </div>
+    -->
+
 </body>
 </html>
